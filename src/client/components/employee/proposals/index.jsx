@@ -51,16 +51,19 @@ function Proposals() {
     {
       title: "Job",
       dataIndex: "job",
-      render: ({ id, title, image }) => {
-        const imageUrl = image ? `http://excodeteam.com/crs/public/images/${image}` : IMG01;
-        return (
-          <div className="table-avatar">
-            <Link to={`/jobs/single-job/${id}`} className="avatar avatar-sm mr-2">
-              <img alt="" src={imageUrl} />
-            </Link>
-            <Link to={`/jobs/single-job/${id}`}>{title}</Link>
-          </div>
-        )
+      render: (job) => {
+        if (job) {
+          const { id, title, image } = job;
+          const imageUrl = image ? `http://excodeteam.com/crs/public/images/${image}` : IMG01;
+          return (
+            <div className="table-avatar">
+              <Link to={`/jobs/single-job/${id}`} className="avatar avatar-sm mr-2">
+                <img alt="" src={imageUrl} />
+              </Link>
+              <Link to={`/jobs/single-job/${id}`}>{title}</Link>
+            </div>
+          )
+        }
       },
       sorter: (a, b) => a.job.title.length - b.job.title.length,
     },
@@ -114,7 +117,7 @@ function Proposals() {
               <nav aria-label="breadcrumb" className="page-breadcrumb">
                 <ol className="breadcrumb">
                   <li className="breadcrumb-item"><Link to="/home">Home</Link></li>
-                  <li className="breadcrumb-item"><Link to="/doctor/appointments">Proposals</Link></li>
+                  <li className="breadcrumb-item active" aria-current="page">Proposals</li>
                 </ol>
               </nav>
               <h2 className="breadcrumb-title">Proposals</h2>

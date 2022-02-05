@@ -155,7 +155,7 @@ class HomeBookDoctor extends Component {
                               <div className="profile-widget">
                                 <div className="pro-content">
                                   <h3 className="title">
-                                    <Link to="/patient/doctor-profile">{title}</Link>
+                                    <Link to={`/jobs/single-job/${id}`}>{title}</Link>
                                   </h3>
                                   <p className="speciality">{subDetails}</p>
                                   <h5 className="doc-department"><Link to="/jobs" onClick={() => getCategoriesJobs(categoryId)}><img src={categoryImgUrl} className="img-fluid" alt="Category" />{categoryName}</Link></h5>

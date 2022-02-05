@@ -16,7 +16,8 @@ function Profile() {
   const { getProfile, profile, setProfile, loading } = useContext(EmployeeContext);
   const { getCountries, countries } = useContext(UserContext);
   const { categories, employeeInfo } = profile;
-  const { category: { ...category }, country_id, email, mobile, photo, name, birthDate, address, city, state, zipCode, pref } = employeeInfo;
+  const { category, country_id, email, mobile, photo, name, birthDate, address, city, state, zipCode, pref } = employeeInfo;
+  const categoryObj = category ? { ...category } : {}
   const imageUrl = photo ? `http://excodeteam.com/crs/public/images/${photo}` : IMG01;
 
   const [preview, setPreview] = useState("");
@@ -35,7 +36,7 @@ function Profile() {
       birthDate: date,
       email: email || '',
       mobile: mobile || '',
-      category: category.id || '',
+      category: categoryObj.id || '',
       country: country_id || '',
       address: address || "",
       city: city || "",

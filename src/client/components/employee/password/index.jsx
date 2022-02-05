@@ -3,12 +3,13 @@ import DashboardSidebar from '../sidebar/sidebar.jsx';
 import StickyBox from "react-sticky-box";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { Link } from "react-router-dom";
 // context
 import { UserContext } from "../../../context/user";
 
-function Password () {
+function Password() {
 
-  const {changePassword} = useContext(UserContext);
+  const { changePassword } = useContext(UserContext);
 
   const initialValues = () => {
     return {
@@ -24,7 +25,7 @@ function Password () {
     confirmPassword: Yup.string().oneOf([Yup.ref('newPassword'), null], 'Passwords must match').required("Required"),
   });
 
- const handleSubmit = async (values, actions) => {
+  const handleSubmit = async (values, actions) => {
     await changePassword(values);
     actions.resetForm({
       values: {
@@ -35,7 +36,7 @@ function Password () {
     });
   }
 
-  return(
+  return (
     <>
       <div className="breadcrumb-bar">
         <div className="container-fluid">
@@ -43,7 +44,7 @@ function Password () {
             <div className="col-md-12 col-12">
               <nav aria-label="breadcrumb" className="page-breadcrumb">
                 <ol className="breadcrumb">
-                  <li className="breadcrumb-item"><a href="/home">Home</a></li>
+                  <li className="breadcrumb-item"><Link to="/home">Home</Link></li>
                   <li className="breadcrumb-item active" aria-current="page">Profile Settings</li>
                 </ol>
               </nav>
@@ -53,11 +54,11 @@ function Password () {
         </div>
       </div>
 
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
+      <div className="content">
+        <div className="container-fluid">
+          <div className="row">
 
-            <div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+            <div className="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
               <StickyBox offsetTop={20} offsetBottom={20}>
                 < DashboardSidebar />
               </StickyBox>
@@ -72,42 +73,42 @@ function Password () {
                     onSubmit={handleSubmit}
                     validateOnChange={false}
                   >
-                    {(formik)=>{
+                    {(formik) => {
                       return (
                         <Form>
-                          <div class="form-group">
+                          <div className="form-group">
                             <label>Old Password</label>
-                            <Field type="password" name="oldPassword" class="form-control" />
+                            <Field type="password" name="oldPassword" className="form-control" />
                             <ErrorMessage name="oldPassword" />
                           </div>
-                          <div class="form-group">
+                          <div className="form-group">
                             <label>New Password</label>
-                            <Field type="password" name="newPassword" class="form-control" />
+                            <Field type="password" name="newPassword" className="form-control" />
                             <ErrorMessage name="newPassword" />
                           </div>
-                          <div class="form-group">
+                          <div className="form-group">
                             <label>Confirm Password</label>
-                            <Field type="password" name="confirmPassword" class="form-control" />
+                            <Field type="password" name="confirmPassword" className="form-control" />
                             <ErrorMessage name="confirmPassword" />
                           </div>
-                          <div class="submit-section">
-                            <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+                          <div className="submit-section">
+                            <button type="submit" className="btn btn-primary submit-btn">Save Changes</button>
                           </div>
                         </Form>
                       )
                     }}
-                  </Formik>       
+                  </Formik>
                 </div>
               </div>
             </div>
 
           </div>
         </div>
-      </div>      
+      </div>
     </>
   );
 }
 
-export default Password;   
-        
+export default Password;
+
 

@@ -52,7 +52,7 @@ function SuccessStory() {
                       <ul>
                         <li>
                           <div className="post-author">
-                            <Link to="/patient/doctor-profile"><img src={photoUrl} alt="Post Author" />
+                            <Link to="#"><img src={photoUrl} alt="Post Author" />
                               <span>{name}</span>
                             </Link>
                           </div>

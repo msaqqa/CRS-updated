@@ -14,7 +14,8 @@ function Profile() {
 
   const { getProfile, profile, loading } = useContext(EmployeeContext);
   const { employeeInfo } = profile;
-  const { category: { ...category }, country_id, email, mobile, photo, name, birthDate, address, city, state, zipCode, pref, educations, works, languages, skills } = employeeInfo;
+  const { category, country_id, email, mobile, photo, name, birthDate, address, city, state, zipCode, pref, educations, works, languages, skills } = employeeInfo;
+  const categoryObj = category ? { ...category } : {}
   const photoUrl = photo ? `http://excodeteam.com/crs/public/images/${photo}` : IMG01;
 
   useEffect(() => {
@@ -29,7 +30,7 @@ function Profile() {
             <div className="col-md-12 col-12">
               <nav aria-label="breadcrumb" className="page-breadcrumb">
                 <ol className="breadcrumb">
-                  <li className="breadcrumb-item"><a href="/home">Home</a></li>
+                  <li className="breadcrumb-item"><Link to="/home">Home</Link></li>
                   <li className="breadcrumb-item active" aria-current="page">Profile</li>
                 </ol>
               </nav>
@@ -61,7 +62,7 @@ function Profile() {
                           </div>
                           <div className="doc-info-cont">
                             <h4 className="doc-name">{name}</h4>
-                            <p className="doc-speciality">{category.name}</p>
+                            <p className="doc-speciality">{categoryObj.name}</p>
                             <ul className="entry-meta meta-item">
                               <li><i className="fas fa-map-marker-alt"></i> {country_id}</li>
                               <li><i className="far fa-envelope"></i> {email}</li>

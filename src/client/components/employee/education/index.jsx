@@ -94,7 +94,7 @@ function Educations() {
             <div className="col-md-12 col-12">
               <nav aria-label="breadcrumb" className="page-breadcrumb">
                 <ol className="breadcrumb">
-                  <li className="breadcrumb-item"><a href="/home">Home</a></li>
+                  <li className="breadcrumb-item"><Link to="/home">Home</Link></li>
                   <li className="breadcrumb-item active" aria-current="page">Education</li>
                 </ol>
               </nav>
