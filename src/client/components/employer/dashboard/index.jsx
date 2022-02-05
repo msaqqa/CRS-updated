@@ -212,10 +212,10 @@ function EmployerDashboard() {
                                             <tr key={id}>
                                               <td>
                                                 <h2 className="table-avatar">
-                                                  <Link to="#" className="avatar avatar-sm mr-2">
+                                                  <Link to="#" onClick={() => handleViewBtn(proposal, id)} className="avatar avatar-sm mr-2">
                                                     <img className="avatar-img rounded-circle" src={photoUrl} alt="User" />
                                                   </Link>
-                                                  <Link to="#">
+                                                  <Link to="#" onClick={() => handleViewBtn(proposal, id)}>
                                                     {name}
                                                   </Link>
                                                 </h2>

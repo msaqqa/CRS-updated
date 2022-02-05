@@ -115,7 +115,7 @@ function SingleJob() {
                       <div className="doc-info-right">
                         <div className="clinic-booking">
                           <div className="clinic-booking">
-                            <button title={titleText} className="apt-btn" disabled={disabled} onClick={checkUserMember}>Post Proposal</button>
+                            <button title={titleText} className={disabled ? 'bg-warning-light' : 'apt-btn'} disabled={disabled} onClick={checkUserMember}>Post Proposal</button>
                           </div>
                         </div>
                       </div>
